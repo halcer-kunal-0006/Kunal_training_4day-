@@ -1,0 +1,12 @@
+ticket_id,category,priority,description,resolution_time_hours,customer_rating,status
+T-101,billing,high,Clean row for comparison,2.5,5,resolved
+T-102,technical,medium,Resolution time is text,two hours,4,open
+T-103,account,low,Negative resolution time,-3,5,resolved
+T-104,shipping,high,Rating above the 1-5 scale,4,7,closed
+T-105,billing,medium,Rating below the 1-5 scale,3,0,resolved
+T-106,technical,urgent,Priority not recognised,5,3,open
+T-107,,,Category and priority missing,6,4,
+t-108 , Billing , HIGH ,Extra spaces and mixed case,1,5, Resolved 
+,shipping,low,Ticket ID missing,2,4,open
+T-101,billing,low,Repeats ticket T-101,1,2,open
+T-109,account,low,Not a number,nan,inf,open

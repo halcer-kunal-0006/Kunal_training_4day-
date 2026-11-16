@@ -1,0 +1,3 @@
+ticket_id,category,priority,description,resolution_time_hours,customer_rating,status
+,billing,high,Ticket ID left blank,2,5,resolved
+   ,technical,low,Ticket ID is only spaces,1,4,open

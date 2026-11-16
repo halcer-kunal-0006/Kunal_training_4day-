@@ -478,14 +478,24 @@ through the real upload widget in `tests/dashboard/test_app.py`.
 
 Errors appear in a red box at the top of the page, and the old results disappear.
 
+### Try it yourself: `data/invalid/`
+
+Want to see the detection in action? [`data/invalid/`](data/invalid/) holds 14
+realistic broken ticket exports, each with one kind of problem: empty files, a
+`.txt` export, missing, renamed or repeated columns, an unquoted comma, a short
+row, an unclosed quote, Latin-1 encoding, repeated ticket IDs, blank IDs, and a
+`dirty_values.csv` with one row for every cleaning rule. Upload any of them and
+press **Process**. The [folder's README](data/invalid/README.md) lists what each
+file should show, and `tests/dashboard/test_invalid_data.py` checks every one.
+
 ---
 
 ## 7. Testing
 
 ```bash
-pytest                    # all 228 tests, in random order (pytest-randomly)
-pytest tests/dashboard    # only the Day 4 tests (42)
-pytest -m ui              # only the Streamlit UI tests (17)
+pytest                    # all 270 tests, in random order (pytest-randomly)
+pytest tests/dashboard    # only the Day 4 tests (84)
+pytest -m ui              # only the Streamlit UI tests (30)
 pytest -m integration     # whole pipeline and CLI against real files (17)
 pytest --cov              # with branch coverage
 ```
@@ -494,6 +504,7 @@ pytest --cov              # with branch coverage
 |---|---|---|
 | `tests/dashboard/test_service.py` | 25 | Valid uploads work (BOM, CRLF, zero valid tickets); every bad file raises a specific error that names the file and leaks no path; the size limit at and above the boundary; the Reject policy; **analytics agreement**; nothing is written to disk |
 | `tests/dashboard/test_app.py` | 17 | The app starts in the empty state with no exception; each test file goes through the real `st.file_uploader` and shows results or an explanation, never a traceback; sample data; Process with no file; a rerun reuses state; an error replaces an old result; Clear resets |
+| `tests/dashboard/test_invalid_data.py` | 42 | Every file in `data/invalid/` is caught with the right error and message under both duplicate policies, both through the service and through the real upload widget; the dirty file reports exactly one issue per cleaning rule; no file in the folder is left without an expected result |
 | `tests/unit`, `tests/integration` | 186 | The Day 3 pipeline tests, copied unchanged and still passing |
 
 The UI tests use Streamlit's `AppTest`, which runs `app.py` headlessly and clicks
@@ -511,7 +522,7 @@ Saved outputs are in `results/`. They were re-run and re-confirmed on 2026-11-16
 
 | Check | Result | File |
 |---|---|---|
-| pytest (fixed and random order) | **228 passed** | `results/test_results.txt` |
+| pytest (fixed and random order) | **270 passed** | `results/test_results.txt` |
 | Coverage | **99%** overall; `service.py` 97% | `results/coverage.txt` |
 | ruff check and format | All checks passed | `results/ruff.txt` |
 | mypy `--strict` | No issues in 33 files | `results/mypy.txt` |
@@ -558,7 +569,9 @@ day4_ticket_dashboard/
 ├── app.py                        Streamlit UI: widgets, state and layout only
 ├── pyproject.toml                dependencies + pytest, coverage, mypy and ruff settings
 ├── .streamlit/config.toml        5 MB upload limit, headless, no usage stats
-├── data/tickets.csv              25-row sample dataset
+├── data/
+│   ├── tickets.csv               25-row sample dataset
+│   └── invalid/                  14 broken exports for trying error detection + README
 ├── src/
 │   ├── ticket_dashboard/         Day 4 service layer
 │   │   └── service.py            upload checks, process_upload, preview, display tables
@@ -617,7 +630,7 @@ day4_ticket_dashboard/
   types are pandas' view of the file, not the pipeline's.
 - **No login and nothing saved.** Results live in your browser session and are
   gone when you close the tab.
-- **Screenshots aren't automatic.** The UI behaviour is proven by the 17 `AppTest`
+- **Screenshots aren't automatic.** The UI behaviour is proven by the 30 `AppTest`
   tests. To capture screenshots, follow [docs/SCREENSHOTS.md](docs/SCREENSHOTS.md).
 
 ---

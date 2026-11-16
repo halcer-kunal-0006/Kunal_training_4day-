@@ -1,0 +1,3 @@
+ticket_id,category,priority,description,resolution_time_hours,customer_rating,status
+T-101,billing,high,"Charged twice for one order,2.5,5,resolved
+T-102,technical,medium,Unable to reset password,8,4,open
