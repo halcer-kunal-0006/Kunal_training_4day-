@@ -1,0 +1,7 @@
+# Streamlit settings for the dashboard. No secrets belong here.
+[server]
+maxUploadSize = 5  # MB; keep in step with MAX_UPLOAD_MB in src/ticket_dashboard/service.py
+headless = true
+
+[browser]
+gatherUsageStats = false
