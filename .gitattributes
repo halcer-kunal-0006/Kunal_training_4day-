@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.csv text eol=lf
+# Upload fixtures must keep their exact bytes (Latin-1, blank lines, BOM tests)
+tests/fixtures/uploads/* binary
