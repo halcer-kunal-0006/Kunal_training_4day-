@@ -1,0 +1,3 @@
+ticket_id,category,priority,description,resolution_time_hours,customer_rating,status
+,billing,high,No id,2,5,resolved
+,technical,low,No id either,1,4,open

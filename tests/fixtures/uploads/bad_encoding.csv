@@ -1,0 +1,2 @@
+ticket_id,category,priority,description,resolution_time_hours,customer_rating,status
+T-1,billing,high,Café order wrong,2,5,resolved

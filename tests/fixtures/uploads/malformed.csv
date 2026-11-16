@@ -1,0 +1,3 @@
+ticket_id,category,priority,description,resolution_time_hours,customer_rating,status
+T-1,billing,high,Charged twice,2,5,resolved
+T-2,technical,medium,App crash, on start,8,3,open

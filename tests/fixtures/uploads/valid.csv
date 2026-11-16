@@ -1,0 +1,5 @@
+ticket_id,category,priority,description,resolution_time_hours,customer_rating,status
+T-1,billing,high,Charged twice,2,5,resolved
+T-2,technical,medium,App crash,8,3,open
+T-3,billing,low,Refund query,4,4,closed
+T-4,shipping,high,Late parcel,6,2,pending

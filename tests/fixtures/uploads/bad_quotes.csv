@@ -1,0 +1,2 @@
+ticket_id,category,priority,description,resolution_time_hours,customer_rating,status
+T-1,billing,high,"Charged twice,2,5,resolved
