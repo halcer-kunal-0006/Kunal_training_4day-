@@ -67,5 +67,6 @@ Save browser screenshots in `docs/screenshots/` with these names:
 `04_malformed_error.png`, `05_wrong_columns_error.png`.
 They are shown, with the expected result and a pass/fail line, in
 [`SCREENSHOTS.md`](SCREENSHOTS.md).
-No screenshots were captured in this session because no browser automation
-was available. The automated column above is the verification evidence.
+Screenshots 02, 02a, 03, 05 and 06 were captured by hand on 2026-11-16 in
+Microsoft Edge. 01 and 04 are still to capture. The automated column above
+remains the main verification evidence.
