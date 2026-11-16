@@ -65,5 +65,7 @@ on `service.validate_upload`. The reproduction is in
 Save browser screenshots in `docs/screenshots/` with these names:
 `01_empty_state.png`, `02_sample_analytics.png`, `03_data_quality.png`,
 `04_malformed_error.png`, `05_wrong_columns_error.png`.
+They are shown, with the expected result and a pass/fail line, in
+[`SCREENSHOTS.md`](SCREENSHOTS.md).
 No screenshots were captured in this session because no browser automation
 was available. The automated column above is the verification evidence.
