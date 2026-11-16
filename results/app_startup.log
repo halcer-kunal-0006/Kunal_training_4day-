@@ -1,0 +1,9 @@
+$ streamlit run app.py
+2026-11-16 12:15:45.538 Uvicorn server started on :::8501
+  You can now view your Streamlit app in your browser.
+  Local URL: http://localhost:8501
+
+$ curl http://localhost:8501/_stcore/health
+ok
+$ curl -o /dev/null -w "%{http_code}" http://localhost:8501/
+200

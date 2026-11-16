@@ -1,0 +1,53 @@
+2026-11-16 12:15:30.884 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-11-16 12:15:31.139 Uncaught app execution
+Traceback (most recent call last):
+  File "<project>\.venv\Lib\site-packages\streamlit\runtime\scriptrunner\exec_code.py", line 136, in exec_func_with_error_handling
+    result = func()
+  File "<project>\.venv\Lib\site-packages\streamlit\runtime\scriptrunner\script_runner.py", line 809, in code_to_exec
+    self._session_state.on_script_will_rerun(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        rerun_data.widget_states,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        is_history_navigation=rerun_data.is_history_navigation,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<project>\.venv\Lib\site-packages\streamlit\runtime\state\safe_session_state.py", line 75, in on_script_will_rerun
+    self._state.on_script_will_rerun(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        fresh_widget_states,
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        is_history_navigation=is_history_navigation,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<project>\.venv\Lib\site-packages\streamlit\runtime\state\session_state.py", line 920, in on_script_will_rerun
+    self._call_callbacks(
+    ~~~~~~~~~~~~~~~~~~~~^
+        incoming_replay_trigger_states=replay_trigger_states,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        incoming_replay_trigger_values=replay_trigger_values,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<project>\.venv\Lib\site-packages\streamlit\runtime\state\session_state.py", line 957, in _call_callbacks
+    if not self._widget_changed(wid):
+           ~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<project>\.venv\Lib\site-packages\streamlit\runtime\state\session_state.py", line 1349, in _widget_changed
+    new_value = self._new_widget_state.get(widget_id)
+  File "<frozen _collections_abc>", line 795, in get
+  File "<project>\.venv\Lib\site-packages\streamlit\runtime\state\session_state.py", line 196, in __getitem__
+    deserialized = metadata.deserializer(unpack_widget_state_value(wstate.value))
+  File "<project>\.venv\Lib\site-packages\streamlit\elements\widgets\file_uploader.py", line 122, in deserialize
+    enforce_filename_restriction(file.name, self.allowed_types)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<project>\.venv\Lib\site-packages\streamlit\elements\lib\file_uploader_utils.py", line 158, in enforce_filename_restriction
+    raise StreamlitAPIException(
+    ...<2 lines>...
+    )
+streamlit.errors.StreamlitAPIException: Invalid file extension: `.txt`. Allowed: ['.csv']
+exceptions on page: ["Invalid file extension: `.txt`. Allowed: ['.csv']"]
+AFTER FIX  -> uploader has no type filter; service.validate_upload rejects with:
+  UploadError: Upload 'wrong_ext.txt' has the extension '.txt' instead of '.csv'. Export the ticket data as CSV and upload that file.

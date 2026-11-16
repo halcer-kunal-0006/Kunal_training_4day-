@@ -1,0 +1,30 @@
+$ python -m pytest --cov --cov-report=term-missing -q
+........................................................................ [ 31%]
+........................................................................ [ 63%]
+........................................................................ [ 94%]
+............                                                             [100%]
+=============================== tests coverage ================================
+_______________ coverage: platform win32, python 3.15.2-final-0 _______________
+
+Name                                           Stmts   Miss Branch BrPart  Cover   Missing
+------------------------------------------------------------------------------------------
+src\ticket_dashboard\__init__.py                   2      0      0      0   100%
+src\ticket_dashboard\service.py                   72      2      6      0    97%   128-129
+src\ticket_pipeline\__init__.py                    9      0      0      0   100%
+src\ticket_pipeline\__main__.py                    3      3      0      0     0%   3-7
+src\ticket_pipeline\analytics.py                  29      0      6      0   100%
+src\ticket_pipeline\cli.py                        32      0      0      0   100%
+src\ticket_pipeline\config.py                     48      0      4      0   100%
+src\ticket_pipeline\decorators.py                 27      0      0      0   100%
+src\ticket_pipeline\errors.py                     48      0      4      0   100%
+src\ticket_pipeline\logging_config.py             45      0     10      0   100%
+src\ticket_pipeline\models.py                     82      0     20      0   100%
+src\ticket_pipeline\pipeline.py                   36      0      0      0   100%
+src\ticket_pipeline\processing\__init__.py         0      0      0      0   100%
+src\ticket_pipeline\processing\cleaning.py        74      0     28      0   100%
+src\ticket_pipeline\processing\loader.py          70      0     16      0   100%
+src\ticket_pipeline\processing\validation.py      46      0     14      0   100%
+src\ticket_pipeline\processing\writers.py         46      0      4      0   100%
+------------------------------------------------------------------------------------------
+TOTAL                                            669      5    112      0    99%
+228 passed in 5.54s
